@@ -24,6 +24,23 @@ The environment is designed for:
 
 ---
 
+## Vulnerable Application
+
+This lab is intended to be used with the vulnerable ATutor application associated with the following public exploit:
+
+- ATutor 2.2.1 - SQL Injection / Remote Code Execution
+  [Exploit-DB 39514](https://www.exploit-db.com/exploits/39514)
+
+The environment is useful for practicing:
+- Authentication bypass
+- SQL injection
+- Arbitrary file upload
+- File inclusion
+- Source code auditing
+- Legacy PHP exploitation
+
+---
+
 ## Features
 
 - Dockerized ATutor environment
