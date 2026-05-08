@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  atutor:
+    platform: linux/amd64
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      TZ: Asia/Jakarta
+    volumes:
+      - ./atutor:/var/www/html
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+
+  db:
+    platform: linux/amd64
+    image: mysql:5.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: atutor
+      MYSQL_USER: atutor
+      MYSQL_PASSWORD: atutor
+      TZ: Asia/Jakarta
+    command: >
+      --general-log=1
+      --general-log-file=/var/log/mysql/mysql.log
+    volumes:
+      - ./mysql-logs:/var/log/mysql
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
